@@ -1,8 +1,8 @@
-	- %c - character @done
+	- $c - character @done
 	- $s - string @done
 	- %p - pointer argument printed in hexadecimal
-	- %d - decimal in base 10
-	- %i - int in base 10
+	- %d - decimal in base 10 @done
+	- %i - int in base 10 @done
  	- %u - unsigned decimal in base 10
 	- %x - hexadecimal
 	- %% - print a percentage sign
