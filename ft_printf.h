@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 06:43:21 by azaid             #+#    #+#             */
-/*   Updated: 2021/09/07 20:19:57 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/16 12:42:52 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ typedef struct s_print
 char	*ft_itoa(int n, int base);
 int		ft_intlen(long n);
 char	*ft_strcpy(char *dst, const char *src);
-
+void	ft_putchar(char c);
 #endif
