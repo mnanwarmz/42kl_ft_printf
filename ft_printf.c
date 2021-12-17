@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 06:29:20 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/16 17:04:37 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/17 15:19:16 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,23 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "ft_printf.h"
+
+void	ft_parse_format(int *i, char c, va_list ap)
+{
+	if (c == 'c')
+		ft_putchar(va_args(ap, int));
+	if (c == 's')
+		ft_puts(va_args(ap, char *));
+	if (c == 'i' || c == 'd')
+		ft_putnbr(va_args(ap, int));
+	if (c == 'u')
+		ft_putnbr(va_args(ap, unsigned int));
+	if (c == 'x')
+		ft_puthex(va_args(ap, int));
+	if (c == '%')
+		ft_putchar('%');
+	i++;
+}
 
 int	ft_printf(char *format, ...)
 {
@@ -25,23 +42,9 @@ int	ft_printf(char *format, ...)
 	while (format[i++])
 	{
 		if (format[i] == '%')
-		{
-		if (format[i+1] == 'c')
-			ft_putchar(va_args(ap, int));
-		if (format[i+1] == 's')
-			ft_puts(va_args(ap, char *));
-		if (format[i+1] == 'd')
-			ft_putnbr(va_args(ap, float));
-		if (format[i+1] == 'i')
-			ft_putnbr(va_args(ap, int));
-		if (format[i+1] == 's')
-			ft_putchar(va_args(ap, int));
-		if (format[i+1] == 's')
-			ft_putchar(va_args(ap, int));
-		if (format[i+1] == 's')
-			ft_putchar(va_args(ap, int));
-		}
+			ft_parse_format(&i, format[i + 1], ap);
+		ft_putchar(format[i]);
 	}
 	va_end(ap);
-	return (1);
+	return (i);
 }

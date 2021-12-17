@@ -3,6 +3,6 @@
 	- %p - pointer argument printed in hexadecimal
 	- %d - decimal in base 10 @done
 	- %i - int in base 10 @done
- 	- %u - unsigned decimal in base 10
+ 	- %u - unsigned decimal in base 10 @done
 	- %x - hexadecimal
-	- %% - print a percentage sign
+	- %% - print a percentage sign @done
