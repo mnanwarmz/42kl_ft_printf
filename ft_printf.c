@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 06:29:20 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/17 15:19:16 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/22 07:25:12 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,26 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-void	ft_parse_format(int *i, char c, va_list ap)
+void	ft_parse_format(int *i, char c, va_list ap, int *print_length)
 {
 	if (c == 'c')
-		ft_putchar(va_args(ap, int));
+		*print_length += ft_putchar(va_arg(ap, int));
 	if (c == 's')
-		ft_puts(va_args(ap, char *));
+		*print_length += ft_putstr(va_arg(ap, char *));
 	if (c == 'i' || c == 'd')
-		ft_putnbr(va_args(ap, int));
+		ft_putnbr(va_arg(ap, int), print_length);
 	if (c == 'u')
-		ft_putnbr(va_args(ap, unsigned int));
-	if (c == 'x')
-		ft_puthex(va_args(ap, int));
+		ft_putnbr(va_arg(ap, unsigned int), print_length);
+	if (c == 'p')
+	{
+		ft_putstr("0x");
+		*print_length += 2;
+		ft_putptr(va_arg(ap, unsigned long long), print_length);
+	}
+	if (c == 'x' || c == 'X')
+		ft_puthex(va_arg(ap, int), print_length, c);
 	if (c == '%')
-		ft_putchar('%');
+		*print_length +=ft_putchar('%');
 	i++;
 }
 
@@ -36,15 +42,25 @@ int	ft_printf(char *format, ...)
 {
 	va_list		ap;
 	int			i;
+	static int	print_length;
 
 	i = 0;
+	print_length = 0;
 	va_start(ap, format);
-	while (format[i++])
+	while (format[i])
 	{
 		if (format[i] == '%')
-			ft_parse_format(&i, format[i + 1], ap);
-		ft_putchar(format[i]);
+		{
+			ft_parse_format(&i, format[i + 1], ap, &print_length);
+			i++;
+		}
+		else
+		{
+			ft_putchar(format[i]);
+			print_length++;
+		}
+		i++;
 	}
 	va_end(ap);
-	return (i);
+	return (print_length);
 }

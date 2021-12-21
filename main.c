@@ -1,4 +1,10 @@
-int main()
+#include "ft_printf.h"
+#include <stdio.h>
+
+int	main(void)
 {
-	ft_printf("%s\n", ft_itoa(-2147483647, 11));
+	int a = 0;
+	printf("%d",ft_printf("%p %%", &a));
+	// ft_printf("%s\n", "Hello World");
+	// printf("%d",printf("%p %%",&a));
 }
