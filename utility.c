@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 15:42:15 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/22 07:24:14 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/22 07:43:20 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	ft_putstr(char *s)
 	i = 0;
 	while (s[i] != '\0')
 		i++;
-	// ft_putnbr(i, &x);
 	write(1, s, sizeof(char) * i);
 	return (i);
 }
@@ -39,7 +38,7 @@ void	ft_putnbr(int n, int *print_length)
 	{
 		nb2 = nb2 * -1;
 		ft_putchar('-');
-		*print_length++;
+		*print_length += 1;
 	}
 	if (nb2 >= 10)
 		ft_putnbr(nb2 / 10, print_length);
@@ -49,7 +48,7 @@ void	ft_putnbr(int n, int *print_length)
 
 void	ft_puthex(int n, int *print_length, const char format)
 {
-	unsigned long long	nb;
+	long long	nb;
 
 	nb = n;
 	if (nb < 0)
