@@ -1,8 +1,8 @@
-NAME	=	ft_printf.a
+NAME	=	libftprintf.a
 
-SRCS	=	$(wildcard *.c)
+CC		=	gcc
 
-OBJS	=	$(SRCS:.c=.o)
+CFLAGS	=	-Wall -Wextra -Werror
 
 RM		=	rm -f
 
@@ -10,9 +10,10 @@ AR		=	ar rcs
 
 RL		=	ranlib
 
-CC		=	gcc
+SRCS	=	$(wildcard *.c)
 
-CFLAGS	=	-Wall -Wextra -Werror
+OBJS	=	$(SRCS:.c=.o)
+
 
 all:	$(NAME)
 
@@ -23,7 +24,7 @@ $(NAME):	$(OBJS)
 	@	echo Done.
 
 .c.o:
-	@	echo Compiling $(<:.c.=o)..
+	@	echo Compiling $(<:.c=.o)..
 	@	$(CC) $(CFLAGS) -c $< -o $@
 	@	echo Done.
 

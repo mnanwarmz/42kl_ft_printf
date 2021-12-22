@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 15:42:15 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/22 07:43:20 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/22 13:54:18 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	ft_putstr(char *s)
 {
 	int	i;
 
+	if (s == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	i = 0;
 	while (s[i] != '\0')
 		i++;
@@ -72,6 +77,12 @@ void	ft_puthex(int n, int *print_length, const char format)
 
 void	ft_putptr(unsigned long long n, int *print_length)
 {
+	if (n == 0)
+	{
+		ft_putchar('0');
+		*print_length += 1;
+		return ;
+	}
 	if (n >= 16)
 		ft_putptr(n / 16, print_length);
 	if (n % 16 < 10)

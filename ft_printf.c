@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 06:29:20 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/22 07:28:16 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/22 13:53:19 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_parse_format(int *i, char c, va_list ap, int *print_length)
 	i++;
 }
 
-int	ft_printf(char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			i;
