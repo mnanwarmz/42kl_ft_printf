@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 15:42:15 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/22 13:54:18 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/22 14:20:20 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,11 @@ void	ft_putnbr(int n, int *print_length)
 	*print_length += 1;
 }
 
-void	ft_puthex(int n, int *print_length, const char format)
+void	ft_puthex(unsigned int n, int *print_length, const char format)
 {
 	long long	nb;
 
 	nb = n;
-	if (nb < 0)
-	{
-		nb = nb * -1;
-		ft_putchar('-');
-	}
 	if (nb >= 16)
 		ft_puthex(nb / 16, print_length, format);
 	if (nb % 16 < 10)

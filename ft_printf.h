@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 06:43:21 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/22 11:15:08 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/22 14:21:12 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 void	ft_putnbr(int c, int *print_length);
-void	ft_puthex(int c, int *print_length, const char format);
+void	ft_putui(unsigned int c, int *print_length);
+void	ft_puthex(unsigned int c, int *print_length, const char format);
 void	ft_putptr(unsigned long long c, int *print_length);
 int		ft_convert(int num, int base);
 int		ft_printf(const char *format, ...);

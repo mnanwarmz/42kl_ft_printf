@@ -6,7 +6,7 @@
 /*   By: azaid <azaid@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 06:29:20 by azaid             #+#    #+#             */
-/*   Updated: 2021/12/22 13:53:19 by azaid            ###   ########.fr       */
+/*   Updated: 2021/12/22 14:20:03 by azaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_parse_format(int *i, char c, va_list ap, int *print_length)
 	if (c == 'i' || c == 'd')
 		ft_putnbr(va_arg(ap, int), print_length);
 	if (c == 'u')
-		ft_putnbr(va_arg(ap, unsigned int), print_length);
+		ft_putui(va_arg(ap, unsigned int), print_length);
 	if (c == 'p')
 	{
 		ft_putstr("0x");
@@ -32,7 +32,7 @@ void	ft_parse_format(int *i, char c, va_list ap, int *print_length)
 		ft_putptr(va_arg(ap, unsigned long long), print_length);
 	}
 	if (c == 'x' || c == 'X')
-		ft_puthex(va_arg(ap, int), print_length, c);
+		ft_puthex(va_arg(ap, unsigned int), print_length, c);
 	if (c == '%')
 		*print_length +=ft_putchar('%');
 	i++;
