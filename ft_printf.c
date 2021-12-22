@@ -34,7 +34,7 @@ void	ft_parse_format(int *i, char c, va_list ap, int *print_length)
 	if (c == 'x' || c == 'X')
 		ft_puthex(va_arg(ap, unsigned int), print_length, c);
 	if (c == '%')
-		*print_length +=ft_putchar('%');
+		*print_length += ft_putchar('%');
 	i++;
 }
 

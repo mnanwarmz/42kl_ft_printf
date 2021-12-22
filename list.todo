@@ -1,9 +1,0 @@
-	- $c - character @done
-	- $s - string @done
-	- %p - pointer argument printed in hexadecimal @done
-	- %d - decimal in base 10 @done
-	- %i - int in base 10 @done
- 	- %u - unsigned decimal in base 10 @done
-	- %x - hexadecimal @done
-	- %% - print a percentage sign @done
-		- check print_length @done
